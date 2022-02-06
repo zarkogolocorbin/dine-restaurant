@@ -1,0 +1,47 @@
+.reservation {
+  background: url("../assets/booking/hero-bg-mobile.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+
+.reservation-content {
+  padding: 8rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reservation-content h1 {
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 2.4rem;
+}
+
+@media screen and (min-width: 768px) {
+  .reservation {
+    background: url("../assets/booking/hero-bg-tablet.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .reservation-content h1 {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (min-width: 1110px) {
+  .reservation {
+    background: url("../assets/booking/hero-bg-desktop.jpg");
+  }
+
+  .reservation-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9.2rem 0;
+  }
+
+  .reservation-content h1 {
+    margin-bottom: 0;
+  }
+}

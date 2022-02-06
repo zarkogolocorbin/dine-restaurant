@@ -1,0 +1,71 @@
+.header-booking-container {
+  margin: 0 auto;
+  background: url("../assets/booking/hero-bg-mobile.jpg");
+  background-size: cover;
+  background-position: center top;
+
+  height: 600px;
+  /* position: relative; */
+}
+
+.header-booking-content {
+  padding-top: 56px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.logo-booking {
+  margin-bottom: 4rem;
+}
+
+.header-booking-content h1 {
+  font-weight: 300;
+  margin-bottom: 1.6rem;
+}
+
+.header-booking-content p {
+  max-width: 570px;
+  font-size: 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .header-booking-container {
+    background: url("../assets/booking/hero-bg-tablet.jpg");
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .logo-booking {
+    align-self: flex-start;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .header-booking-container {
+    background: url("../assets/booking/hero-bg-desktop.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 300px;
+  }
+
+  .logo-booking {
+    margin-bottom: 15rem;
+  }
+
+  .header-booking-content {
+    align-items: flex-start;
+  }
+
+  .header-booking-content h1 {
+    margin-bottom: 2.4rem;
+  }
+
+  .header-booking-content p {
+    text-align: start;
+    max-width: 445px;
+  }
+}
