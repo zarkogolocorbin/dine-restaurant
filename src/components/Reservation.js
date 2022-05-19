@@ -1,5 +1,6 @@
 import React from "react";
 import "./Reservation.css";
+import { Link } from "react-router-dom";
 
 const Reservation = () => {
   return (
@@ -7,7 +8,9 @@ const Reservation = () => {
       <div className="section-center">
         <div className="reservation-content">
           <h1>Ready to make a reservation?</h1>
-          <button className="btn">book a table</button>
+          <Link to={"/booking"}>
+            <button className="btn">book a table</button>
+          </Link>
         </div>
       </div>
     </section>

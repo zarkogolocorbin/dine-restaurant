@@ -1,13 +1,8 @@
-import { lazy, Suspense } from "react";
-// import Header from "../components/Header";
-// import About from "../components/About";
-// import Reservation from "../components/Reservation";
-// import Footer from "../components/Footer";
-// import Highlight from "../components/Highlight";
-// import Events from "../components/Events";
+import { lazy, Suspense, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import logoImage from "../assets/logo.svg";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import "../components/Header.css";
 
@@ -18,18 +13,36 @@ const Footer = lazy(() => import("../components/Footer"));
 const Highlight = lazy(() => import("../components/Highlight"));
 const Events = lazy(() => import("../components/Events"));
 
+// framer-motion variant
+
+const variants = {
+  hidden: { opacity: 0, y: -10, x: 0 },
+  enter: { opacity: 1, y: 0, x: 0 },
+  exit: { opacity: 0, y: 10, x: 0 },
+};
+
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    console.log("scroll");
+  }, []);
   return (
-    <div>
+    <motion.div
+      variants={variants}
+      initial="hidden"
+      animate="enter"
+      exit="exit"
+      transition={{ type: "linear" }}
+    >
       <Helmet>
         <title>Dine Restaurant</title>
         <meta
           name="description"
-          content="Restaurant intended for family gatherings, special events and social events "
+          content="Restaurant intended for family gatherings, special events and social events"
         />
         <meta
           name="keywords"
-          content="dine restaurant,restaurant, best food, social events, special events, family gathering  "
+          content="dine restaurant,restaurant, best food, social events, special events, family gathering"
         />
       </Helmet>
 
@@ -71,7 +84,7 @@ const Home = () => {
       <Suspense fallback={<p>...loading</p>}>
         <Footer />
       </Suspense>
-    </div>
+    </motion.div>
   );
 };
 

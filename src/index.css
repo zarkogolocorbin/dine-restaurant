@@ -61,6 +61,7 @@ p {
 }
 
 .btn:hover {
+  border: 1px solid #111;
   color: #111;
   background-color: #fff;
 }

@@ -3,7 +3,12 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Card = ({ highlight }) => {
   return (
-    <div className="highlight-card">
+    <div
+      className="highlight-card"
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: false, amount: 0.1 }}
+    >
       <picture>
         <source
           srcSet={`/assets/highlights/${highlight.imgDesk}`}

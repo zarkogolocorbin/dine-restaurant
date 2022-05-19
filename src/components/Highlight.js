@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "./Card";
+
 import { highlights } from "../highlights";
 
 import "./Highlight.css";

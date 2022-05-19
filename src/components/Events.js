@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { events } from "../events";
+import { Link } from "react-router-dom";
 
 import "./Events.css";
 const Events = () => {
   const [event, setEvent] = useState(events[0]);
-
   return (
     <section className="section-center">
       <div className="events">
-        <div className="left-side">
+        <div>
           <picture>
             <source
               srcSet={`/assets/events/${event.imgDesktop}`}
@@ -27,10 +27,13 @@ const Events = () => {
             />
           </picture>
         </div>
+
         <div className="right-side">
           <h2>{event.title}</h2>
           <p>{event.text}</p>
-          <button className="btn btn-dark">book a table</button>
+          <Link to={"/booking"}>
+            <button className="btn btn-dark">book a table</button>
+          </Link>
           <div className="btn-events">
             <button
               className={`button-event ${event.id === 0 ? "active" : ""}`}
@@ -44,6 +47,7 @@ const Events = () => {
             >
               SPECIAL EVENTS
             </button>
+
             <button
               className={`button-event ${event.id === 2 ? "active" : ""}`}
               onClick={() => setEvent(events[2])}

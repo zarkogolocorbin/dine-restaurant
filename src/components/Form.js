@@ -2,13 +2,25 @@ import React, { useState } from "react";
 
 import "./Form.css";
 
-const Form = () => {
+const Form = ({ setIsModalOpen, name, setName }) => {
   const [numberPeople, setNumberPeople] = useState(4);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setIsModalOpen(true);
+  };
+
   return (
     <section className="section-center">
       <div className="form">
-        <form>
-          <input type="text" className="name-input" placeholder="Name" />
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            className="name-input"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
           <input type="text" className="email-input" placeholder="Email" />
           <div className="data">
             <label>Pick a date</label>

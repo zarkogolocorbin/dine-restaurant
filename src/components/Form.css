@@ -75,12 +75,7 @@ select {
   border: none;
   outline: none;
   color: #777;
-  margin-left: 1.2rem;
-}
-
-select option {
-  color: #777;
-  display: block;
+  padding: 0 1.2rem 1.2rem 0;
 }
 
 .counter {

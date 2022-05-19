@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import logoImage from "../assets/logo.svg";
@@ -6,10 +6,32 @@ import { Helmet } from "react-helmet-async";
 import "../components/HeaderBooking.css";
 import Form from "../components/Form";
 import { Link } from "react-router-dom";
+import Modal from "../components/Modal";
+import { motion } from "framer-motion";
+
+const variants = {
+  hidden: { opacity: 0, y: -10, x: 0 },
+  enter: { opacity: 1, y: 0, x: 0 },
+  exit: { opacity: 0, y: 10, x: 0 },
+};
 
 const Booking = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [name, setName] = useState("");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    console.log("scroll");
+  }, []);
+
   return (
-    <>
+    <motion.div
+      variants={variants}
+      initial="hidden"
+      animate="enter"
+      exit="exit"
+      transition={{ type: "linear" }}
+    >
       <Helmet>
         <title>Dine Restaurant | Booking table</title>
         <meta name="description" content="travel friends about page" />
@@ -33,9 +55,10 @@ const Booking = () => {
           </div>
         </header>
       </Header>
-      <Form />
+      {isModalOpen && <Modal name={name} />}
+      <Form setIsModalOpen={setIsModalOpen} name={name} setName={setName} />
       <Footer />
-    </>
+    </motion.div>
   );
 };
 
